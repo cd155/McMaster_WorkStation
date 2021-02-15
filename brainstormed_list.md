@@ -5,7 +5,7 @@
     - Greedy algorithm is a method to find the local optimal solution in the current stage. Finding a suboptimal solution usually is much cheap than finding the optimal solution. Greedy algorithm usually will bring an accepted solution at a relatively low cost.
 
 2. Dijkstra Algorithm
-    - This is a very classic algorithm to find the shortest path between X to Y in a node graph. Each node will connect to other nodes with a distance assigned in the connection.
+    - This is a very classic algorithm to find the shortest path between X and Y in a node graph. Each node will connect to other nodes with a distance assigned in the connection.
 
 3. Solving Aggregate Planning Problem
     - The objective is to determine values of n nonnegative real variables in order to maximize or minimize a linear function of these variables that is subject to m linear constraints of these variables.
