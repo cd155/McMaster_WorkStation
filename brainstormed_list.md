@@ -9,7 +9,7 @@
 
 3. Solving Aggregate Planning Problem
     - The objective is to determine values of n nonnegative real variables in order to maximize or minimize a linear function of these variables that is subject to m linear constraints of these variables.
-    - The total cost equal to sum all the all costs, and goal is the minimize the cost with constraints.
+    - The total cost equal to sum all the all costs, and the goal is to minimize the cost with constraints.
 
 4. EOQ model (Economic Order Quantity Model)
     - It is the ideal order quantity a company should purchase to minimize inventory costs such as holding costs, shortage costs, and order costs.
@@ -45,5 +45,5 @@
 
 8. Hungarian Algorithm for Assignment Problems
     - The Hungarian Algorithm uses a matrix to solving assignment problems, and minimize the costs.
-    - Eg, four machines need to be assembled in four different locations. The company charged different prices based on machine type and its location, how to find the minimal cost to assemble those machine.
+    - Eg, four machines need to be assembled in four different locations. The company charged different prices based on machine type and its location, how to minimize the cost of assembling those machines.
     - https://en.wikipedia.org/wiki/Hungarian_algorithm
