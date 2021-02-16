@@ -47,3 +47,6 @@
     - The Hungarian Algorithm uses a matrix to solving assignment problems, and minimize the costs.
     - Eg, four machines need to be assembled in four different locations. The company charged different prices based on machine type and its location, how to minimize the cost of assembling those machines.
     - https://en.wikipedia.org/wiki/Hungarian_algorithm
+
+9. Kanban information flow (JIM: Just in time)
+    - Kanban is the Japanese word for card or ticket. Kanban controls the flow of goods in the plant by using a variety of different kinds of cards. Each card is attached to a palette of goods. Production cannot commence until production ordering kanbans are available. This guarantees that production at one level will not begin unless there is demand at the next level. This prevents work-in-process inventories from building up between work centers when a problem arises anywhere in the system.
