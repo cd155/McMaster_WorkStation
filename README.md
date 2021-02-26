@@ -1,2 +1,2 @@
-# McMaster Work_Station
+# McMaster WorkStation
 Everything happening in McMaster University.
