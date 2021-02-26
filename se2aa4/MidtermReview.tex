@@ -16,23 +16,98 @@
 
 \newcounter{stepnum}
 
-\title{Assignment 1 Solution}
-\author{Daniel Scime - scimed1}
+\title{MidTerm Review}
+\author{Don Chen}
 \date{\today}
 
 \begin {document}
 
 \maketitle
+Exam on March 4th
 
-summary
-
-\section{Assumptions and Exceptions} \label{AssumptAndExcept}
-overall
-
+\section{Softare Quality}
+Lecture 4
 \begin{itemize}
-\item only one
+    \item Quality and price are two things.
+    \item User Satisfaction = The Important Qualities are High $+$ Within Budget
+    \item External qualities are visible to the user p7
+    \item Internal qualities are visible to the developer
+    \item Product qualities and Process qualities, p7
+    \item Correctness: if it satisfies its requirements specification. p9
+    \item Reliability: The software works most time, but fails in a small portion of time. p10
+    \item Robustness: if it behaves reasonably even in unanticipated or exceptional situations. p11
+    \item Performance(efficiency): related to external quality requirements for speed and storage. p15
+    \item Usability: how easy a user can use the product. p16
+    \item Verifiability: how easy it is to convince someone it is correct. p18
+    \item Maintainability: how ease it is to modify after its initial release. p19
+    \item Reusability: is reusable if it can be used to create a new product. p22
+    \item Portability: if it can run in different environments. p23
+    \item Understandability: how easy it is to understand requirements, design, implementation, and documentation. p24
+    \item Interoperability, Productivity, Timeliness and Visibility: p30$-$33
 \end{itemize}
 
-\section{Test Cases and Rationale} \label{Testing}
-Test
+\section{Softare Principles}
+Lecture 5 (L5)
+Lecture 6 (L6)
+\begin{itemize}
+    \item Rigour: An argument is valid if the conclusion is logical,and it has mathematics support. Use between human.
+    \item Formality: A language with a formal syntax and a precise semantics. Use between machines. 
+    Advantages: formality can look at all possible outcomes, and this can help to find anything is missed by written specs.
+    Disadvantages: it takes a long time to learn it. The tools are not easy to use, and they are not complete. p12
+    \item Separation of concerns: different concerns should be isolated and considered separately, 
+    reduce a complex problem to a set of simpler problems, parallelization of effort. p18
+    \item Modularity: is a complex system that is divided into smaller parts called modules. It enables separation of concerns
+    \begin{itemize}
+        \item Different parts of the system are considered separately
+        \item The parts of the system are considered separately from their composition
+        \item Good module design L6.P4
+        \begin{itemize}
+            \item High cohesion: The components of the module are closely related. p24
+            \item Low coupling: The module does not strongly depend on other modules. low is good, but not zero coupling.
+        \end{itemize}
+        \item this allow modules be treated in two way:
+        \begin{itemize}
+            \item As a set of interchangeable parts
+            \item As individuals
+        \end{itemize}
+    \end{itemize}
+    \item Abstraction: is the process of focusing on what is important while ignoring what is irrelevant. Special case of 
+    separation of concerns. L6.P6
+    \item Make an Abstract Data Type Abstract: don’t say how it implemented, gave interface but not the implementation.
+    \item Anticipation of change: is the principle that future change should be anticipated and planned for.
+    Some technique to deal with change. L6.P10
+    \begin{itemize}
+        \item Configuration management
+        \item Information hiding
+        \item Documentation
+    \end{itemize}
+    \item Generality: is to use a more general solution to solve the problem. L6.P13
+    \begin{itemize}
+        \item Good1: increase reusability.
+        \item Good2: general problem is easier to solve somtimes
+        \item Bad1: less efficient
+        \item Bad2: it is costly to have a general solution
+        \item Use more abstraction, usually help increase generality.
+    \end{itemize}
+    \item Incrementality: solving problems by producing successively closer approximations to a solution. Get feedback, 
+    and improve it accordingly.
+\end{itemize}
+
+\section{Module}
+Lecture 7
+\begin{itemize}
+    \item Design for change: algorithm, safety standard. p5
+    \item Product families: cars, phones
+    \item Components of a module: a interface and a implementation(hide change in implementation). p13
+    \item Information hiding: hidden from clients. Anticipating changes need to have information hiding. p16
+    \item Example of Module p17
+    \begin{itemize}
+        \item Record: only have data
+        \item Collection of related procedures(library): have behavior not state
+        \item Abstract object: only have one instance
+        \item Abstract data type: collection of abstract objects
+        \item Generic modules: abstract description for a family of objects, like generic module of stack of integers, 
+        strings, stacks.
+    \end{itemize}
+\end{itemize}
 \end {document}
