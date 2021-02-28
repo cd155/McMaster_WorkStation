@@ -1,0 +1,85 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{paralist}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\oddsidemargin 0mm
+\evensidemargin 0mm
+\textwidth 160mm
+\textheight 200mm
+
+\pagestyle {plain}
+\pagenumbering{arabic}
+
+\newcounter{stepnum}
+
+\title{Greedy Algorithm Drasil Case Study}
+\author{Don Chen}
+\date{\today}
+
+\begin {document}
+
+\maketitle
+This is the proposal of greedy algorithms/heuristics to my drasil case study.
+
+\section{Problem Description}
+\begin{itemize}
+    \item Use greedy heuristics to find the "smallerst" number in a tree. 
+    The algorithm can be summarized as:
+    \begin{itemize}
+        \item At each node, pick out the note contains the smallest result.
+        \item Repeat first step until reachs to any leaf.
+    \end{itemize}
+    \item Use greedy heuristics in the Traveling Salesman Problem(TSP): 
+    Find the shortest distance tour passing through each node of the network exactly once. Nearest Neighbor Alorithm:
+    \begin{itemize}
+        \item Start at any city
+        \item Visit the nearest node not yet yet visited
+        \item Return to the start node when all other nodes are visited
+    \end{itemize}
+\end{itemize}
+
+\section{Goal Statements}
+Find relatively good solution with less costly way.
+\begin{itemize}
+    \item This maybe too general, how to define a good solution
+\end{itemize}
+
+\section{Assumptions}
+All types in tree or graph could be quantified. Some type could be hard to be quantified, like boolean. In some decision tree,
+some nodes will ask yes or no quesiton.
+
+\section{Theoretical Model}
+\section{General Definition}
+\section{Supporting Data Definitions}
+
+\section{Instance Models}
+\begin{itemize}
+    \item Tree
+    \begin{itemize}
+        \item Input: Start node
+        \item Output: Number
+    \end{itemize}
+    \item TSP
+    \begin{itemize}
+        \item Input: Start city
+        \item Output: Number
+    \end{itemize}
+\end{itemize}
+
+\section{Question}
+\begin{itemize}
+    \item Greedy algorithms/heuristics is more like a technique rather than an algorithm. Are we looking for two 
+    specific algorithm? The reason I aked this question is it is eaiser to list a problem, then try to find a algorithm 
+    to solve the problem. 
+\end{itemize}
+
+\section{Reference}
+\begin{itemize}
+    \item \href{http://math.mit.edu/~goemans/18433S15/TSP-CookCPS.pdf}{Nearest Neighbor Alorithm} 
+\end{itemize}
+
+\end {document}
