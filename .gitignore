@@ -852,5 +852,5 @@ MigrationBackup/
 
 # personal note file for this class
 note.localignore
-se2aa4/MidtermReview.pdf
 */.ipynb_checkpoints/*
+
