@@ -33,53 +33,70 @@ This is the proposal of greedy algorithms/heuristics to my drasil case study.
         \item At each node, pick out the note contains the smallest result.
         \item Repeat first step until reachs to any leaf.
     \end{itemize}
-    \item Use greedy heuristics in the Traveling Salesman Problem(TSP): 
-    Find the shortest distance tour passing through each node of the network exactly once. Nearest Neighbor Alorithm:
+    \item The Traveling Salesman Problem(TSP): 
+    Find the shortest distance tour passing through each node of the network exactly once. 
     \begin{itemize}
-        \item Start at any city
-        \item Visit the nearest node not yet yet visited
-        \item Return to the start node when all other nodes are visited
+        \item Nearest Neighbor Alorithm
+        \begin{itemize}
+            \item Start at any city
+            \item Visit the nearest node not yet visited
+            \item Return to the start node when all other nodes are visited
+        \end{itemize}
+        \item Kruskal’s Algorithm
+        \begin{itemize}
+            \item Select the miminum weight of edge if the edge doesn't form a circle
+            \item Stop when all node is connected
+            \item \href{https://en.wikipedia.org/wiki/Kruskal%27s_algorithm}{Kruskal’s Algorithm Wiki}
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 
 \section{Goal Statements}
-Find relatively good solution with less costly way.
+
 \begin{itemize}
-    \item This maybe too general, how to define a good solution
+    \item Find relatively a good solution with less costly computation. 
+    This maybe too general, how to define a good solution?
+    \item Find the optimal solutiuon for The Traveling Salesman Problem.
 \end{itemize}
 
 \section{Assumptions}
-All types in tree or graph could be quantified. Some type could be hard to be quantified, like boolean. In some decision tree,
-some nodes will ask yes or no quesiton.
+Assume all type are number.
+Greedy heuristics work well in a quantified environment, but not all type can be quantified.
+Some type could be hard to be quantified, like boolean. 
+In decision tree, some nodes will ask yes or no quesiton.
 
 \section{Theoretical Model}
 \section{General Definition}
+G is a connected graph with n vertices, T is minimal connected spanning of G.
 \section{Supporting Data Definitions}
 
 \section{Instance Models}
 \begin{itemize}
     \item Tree
     \begin{itemize}
-        \item Input: Start node
+        \item Input: Start at the top node
         \item Output: Number
     \end{itemize}
-    \item TSP
+    \item Traveling Salesman Problem
     \begin{itemize}
-        \item Input: Start city
+        \item Input: Start anywhere
         \item Output: Number
     \end{itemize}
 \end{itemize}
 
 \section{Question}
 \begin{itemize}
-    \item Greedy algorithms/heuristics is more like a technique rather than an algorithm. Are we looking for two 
-    specific algorithm? The reason I aked this question is it is eaiser to list a problem, then try to find a algorithm 
-    to solve the problem. 
+    \item (may not relevant now)Greedy algorithms/heuristics is more like a technique rather than an algorithm. Are we looking for two 
+    specific algorithm? The reason I aked this question is that it is eaiser to list a problem, then try to find a algorithm 
+    to solve the problem.
+    \item greedy heuristics impact on wild animal. Animal cognitive, Migrate bird. 
+    \href{https://www.researchgate.net/publication/263430731_Practice_makes_proficient_pigeons_Columba_livia_learn_efficient_routes_on_full-circuit_navigational_traveling_salesperson_problems}{Pigeon experiment}
 \end{itemize}
 
 \section{Reference}
 \begin{itemize}
     \item \href{http://math.mit.edu/~goemans/18433S15/TSP-CookCPS.pdf}{Nearest Neighbor Alorithm} 
+    \item \href{https://www.ams.org/journals/proc/1956-007-01/S0002-9939-1956-0078686-7/home.html}{Kruskal  Alorithm in TSP} 
 \end{itemize}
 
 \end {document}
