@@ -37,17 +37,7 @@ This is the proposal of greedy algorithms/heuristics to my drasil case study.
     Find the shortest distance tour passing through each node of the network exactly once. 
     \begin{itemize}
         \item Nearest Neighbor Alorithm
-        \begin{itemize}
-            \item Start at any city
-            \item Visit the nearest node not yet visited
-            \item Return to the start node when all other nodes are visited
-        \end{itemize}
         \item Kruskal’s Algorithm
-        \begin{itemize}
-            \item Select the miminum weight of edge if the edge doesn't form a circle
-            \item Stop when all node is connected
-            \item \href{https://en.wikipedia.org/wiki/Kruskal%27s_algorithm}{Kruskal’s Algorithm Wiki}
-        \end{itemize}
     \end{itemize}
 \end{itemize}
 
@@ -60,14 +50,23 @@ This is the proposal of greedy algorithms/heuristics to my drasil case study.
 \end{itemize}
 
 \section{Assumptions}
-Assume all type are number.
-Greedy heuristics work well in a quantified environment, but not all type can be quantified.
-Some type could be hard to be quantified, like boolean. 
-In decision tree, some nodes will ask yes or no quesiton.
+
+\begin{itemize}
+    \item V and E are finite sets. 
+    \item It is undirected graphs, means (u,v) = (v,u).
+\end{itemize}
 
 \section{Theoretical Model}
 \section{General Definition}
-G is a connected graph with n vertices, T is minimal connected spanning of G.
+A graph G is an ordered triple (V(G), E(G), f) consisting of a nonempty set V(G) of vertices, a set E(G) of edges, 
+and an incidence function f that associates with each edge and two vertices. If e is an edge and u and v are vertices
+such that f(e) = uv, then e is said to join u and v; the vertices u and v are called the ends of e. u and v are endpoints 
+of edge e.
+\begin{itemize}
+    \item Adjacency: Vertices u, v ∈ V are said adjacent if joined by an edge in E
+    \item Degree: The degree dv of vertex v is its number of incident edges
+    \item It is undirected graphs, means (u,v) = (v,u).
+\end{itemize}
 \section{Supporting Data Definitions}
 
 \section{Instance Models}
