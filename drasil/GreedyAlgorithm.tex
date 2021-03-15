@@ -33,13 +33,13 @@ This is the proposal of the family of greedy algorithms to my drasil case study.
 
 \section{Goal Statements}
 \begin{itemize}
-    \item General: Find the shortest possible route that visits each city exactly once and returns to the origin city
-    \item Mathematicl Definition: In the weighted graph, find the shorest path which contains all vertices.
+    \item General: Find the shortest possible route that visits each city exactly once.
+    \item Mathematical Definition: In the weighted graph, find the shorest path which contains all vertices.
 \end{itemize}
 
 \section{Assumptions}
 \begin{itemize}
-    \item V and E are finite sets. 
+    \item V and E are finite sets.
     \item It is undirected graphs, means f(e) = uv = vu.
     \item It is a connected graph.
     \item There is no loop in the graph.
@@ -65,10 +65,12 @@ u, v $\in$  V (G), such that f(e) = uv, then e is said to join u and v; the vert
 and v are endpoints of edge e. A weighted graph is a graph with each edge e of G let there be associated a real number w(e).
 \begin{itemize}
     \item G = (V(G), E(G), f, w)
-    \item V(G) = {$v\_1$, v\_2, v\_3, v\_4, v\_5}, E(G) = {e\_1, e\_2, e\_3, e\_4, e\_5, e\_6, e\_7, e\_8}
-    \item f(e\_1) = v\_1v\_2, f(e\_2) = v\_2v\_3, f(e3) = v\_3v\_3, f(e4) = v\_3v\_4, f(e5) = v\_2v\_4
-    f(e\_6) = v\_4v\_5, f(e\_7) = v\_2v\_5, f(e\_8) = v\_2v\_5
-    \item w(e\_1, e\_2, e\_3, e\_4, e\_5, e\_6, e\_7, e\_8) = n\_1, n\_2, n\_3, n\_4, n\_5, n\_6, n\_7, n\_8
+    \item V(G) = {$v_1$, $v_2$, $v_3$, $v_4$, $v_5$}
+    \item E(G) = {$e_1$, $e_2$, $e_3$, $e_4$, $e_5$, $e_6$, $e_7$, $e_8$}
+    \item f($e_1$) = $v_1v_2$, f($e_2$) = $v_2v_3$, f(e3) = $v_3v_3$, f(e4) = $v_3v_4$, 
+    \item f(e5) = $v_2v_4$, f($e_6$) = $v_4v_5$, f($e_7$) = $v_2v_5$, f($e_8$) = $v_2v_5$
+    \item w($e_1$) = $n_1$, w($e_2$) = $n_2$, w($e_3$) = $n_3$, w($e_4$) = $n_4$,
+    \item w($e_5$) = $n_5$, w($e_6$) = $n_6$, w($e_7$) = $n_7$, w($e_8$) = $n_8$
 \end{itemize}
 
 \section{Supporting Data Definitions}
@@ -77,10 +79,10 @@ and v are endpoints of edge e. A weighted graph is a graph with each edge e of G
     \item Endpoint: if f(e) = uv, edge e has endpints of u and v. u and v $\in$  V(G).
     \item Loop: An edge with identical ends. f(e) = vu and v = u. u and v $\in$  V(G).
     \item Connected Graph: if for every u, v $\in$  V(G) there exists f(e) = uv. Otherwise G is called disconnected.
-    \item Walk: A walk is a sequence W = {v\_0, e\_1, v\_1, $...$, e\_k, v\_k}, whose terms are alternatively vertices 
-    and edges such that for 1$\le$i$\le$k, the edge e\_i has endpoints v\_{i$-$1} and v\_i. k is the length of W.
-    \item Trail: If the edges e1, e2, $...$, ek of a walk are distinct.
-    \item Path: a path is a walk if both of its edges e1, e2, $...$, ek and its vertices v\_0, v\_1, $...$ , v\_k are distinct.
+    \item Walk: A walk is a sequence W = {$v_0$, $e_1$, $v_1$, $...$, $e_k$, $v_k$}, whose terms are alternatively vertices 
+    and edges such that for 1$\le$i$\le$k, the edge $e_i$ has endpoints $v_{i-1}$ and $v_i$. k is the length of W.
+    \item Trail: If the edges $e_1$, $e_2$, $...$, $e_k$ of a walk are distinct.
+    \item Path: a path is a walk if both of its edges $e_1$, $e_2$, $...$, $e_k$ and its vertices $v_0$, $v_1$, $...$ , $v_k$ are distinct.
     \item Closed: A u,v-walk has first vertex u and last vertex v. 
     When the first and last vertex of a walk, trail or path are the same, we say that they are closed. 
     \item The Shorest Path: a path has the smallest number of sum of its edges' weight.
