@@ -23,77 +23,84 @@
 \begin {document}
 
 \maketitle
-This is the proposal of greedy algorithms/heuristics to my drasil case study.
+This is the proposal of the family of greedy algorithms to my drasil case study.
 
 \section{Problem Description}
 \begin{itemize}
-    \item Use greedy heuristics to find the "smallerst" number in a tree. 
-    The algorithm can be summarized as:
-    \begin{itemize}
-        \item At each node, pick out the note contains the smallest result.
-        \item Repeat first step until reachs to any leaf.
-    \end{itemize}
-    \item The Traveling Salesman Problem(TSP): 
-    Find the shortest distance tour passing through each node of the network exactly once. 
-    \begin{itemize}
-        \item Nearest Neighbor Alorithm
-        \item Kruskal’s Algorithm
-    \end{itemize}
+    \item Given a list of cities and the distances between each pair of cities, 
+    what is the shortest possible route that visits each city exactly once?
 \end{itemize}
 
 \section{Goal Statements}
-
 \begin{itemize}
-    \item Find relatively a good solution with less costly computation. 
-    This maybe too general, how to define a good solution?
-    \item Find the optimal solutiuon for The Traveling Salesman Problem.
+    \item General: Find the shortest possible route that visits each city exactly once and returns to the origin city
+    \item Mathematicl Definition: In the weighted graph, find the shorest path which contains all vertices.
 \end{itemize}
 
 \section{Assumptions}
-
 \begin{itemize}
     \item V and E are finite sets. 
-    \item It is undirected graphs, means (u,v) = (v,u).
+    \item It is undirected graphs, means f(e) = uv = vu.
+    \item It is a connected graph.
+    \item There is no loop in the graph.
 \end{itemize}
 
 \section{Theoretical Model}
+\begin{itemize}
+    \item Nearest Neighbor Alorithm
+    \item Kruskal’s Algorithm
+\end{itemize}
+
+\section{Defined In Graphic}
+\begin{itemize}
+    \item Each city is a node, and each node will has its name.
+    \item A node can connect to other nodes with a line.
+    \item Once two nodes connected, there will be a distance assgined on the line.
+\end{itemize}
+
 \section{General Definition}
 A graph G is an ordered triple (V(G), E(G), f) consisting of a nonempty set V(G) of vertices, a set E(G) of edges, 
-and an incidence function f that associates with each edge and two vertices. If e is an edge and u and v are vertices
-such that f(e) = uv, then e is said to join u and v; the vertices u and v are called the ends of e. u and v are endpoints 
-of edge e.
+and an incidence function f that associates with each edge and two vertices. If e is an edge and u and v are vertices, 
+u, v $\in$  V (G), such that f(e) = uv, then e is said to join u and v; the vertices u and v are called the ends of e. u 
+and v are endpoints of edge e. A weighted graph is a graph with each edge e of G let there be associated a real number w(e).
 \begin{itemize}
-    \item Adjacency: Vertices u, v ∈ V are said adjacent if joined by an edge in E
-    \item Degree: The degree dv of vertex v is its number of incident edges
-    \item It is undirected graphs, means (u,v) = (v,u).
+    \item G = (V(G), E(G), f, w)
+    \item V(G) = {$v\_1$, v\_2, v\_3, v\_4, v\_5}, E(G) = {e\_1, e\_2, e\_3, e\_4, e\_5, e\_6, e\_7, e\_8}
+    \item f(e\_1) = v\_1v\_2, f(e\_2) = v\_2v\_3, f(e3) = v\_3v\_3, f(e4) = v\_3v\_4, f(e5) = v\_2v\_4
+    f(e\_6) = v\_4v\_5, f(e\_7) = v\_2v\_5, f(e\_8) = v\_2v\_5
+    \item w(e\_1, e\_2, e\_3, e\_4, e\_5, e\_6, e\_7, e\_8) = n\_1, n\_2, n\_3, n\_4, n\_5, n\_6, n\_7, n\_8
 \end{itemize}
+
 \section{Supporting Data Definitions}
+\begin{itemize}
+    \item Finite Graph: A graph is finite if both its vertex set and edge set are finite.
+    \item Endpoint: if f(e) = uv, edge e has endpints of u and v. u and v $\in$  V(G).
+    \item Loop: An edge with identical ends. f(e) = vu and v = u. u and v $\in$  V(G).
+    \item Connected Graph: if for every u, v $\in$  V(G) there exists f(e) = uv. Otherwise G is called disconnected.
+    \item Walk: A walk is a sequence W = {v\_0, e\_1, v\_1, $...$, e\_k, v\_k}, whose terms are alternatively vertices 
+    and edges such that for 1$\le$i$\le$k, the edge e\_i has endpoints v\_{i$-$1} and v\_i. k is the length of W.
+    \item Trail: If the edges e1, e2, $...$, ek of a walk are distinct.
+    \item Path: a path is a walk if both of its edges e1, e2, $...$, ek and its vertices v\_0, v\_1, $...$ , v\_k are distinct.
+    \item Closed: A u,v-walk has first vertex u and last vertex v. 
+    When the first and last vertex of a walk, trail or path are the same, we say that they are closed. 
+    \item The Shorest Path: a path has the smallest number of sum of its edges' weight.
+    \item Weight: With each edge e of G let there be associated a real number w(e), called its weight.
+\end{itemize}
 
 \section{Instance Models}
 \begin{itemize}
-    \item Tree
-    \begin{itemize}
-        \item Input: Start at the top node
-        \item Output: Number
-    \end{itemize}
-    \item Traveling Salesman Problem
-    \begin{itemize}
-        \item Input: Start anywhere
-        \item Output: Number
-    \end{itemize}
+    \item Input: G = (V(G), E(G), f, w)
+    \item Output: a sequence
 \end{itemize}
 
 \section{Question}
 \begin{itemize}
-    \item (may not relevant now)Greedy algorithms/heuristics is more like a technique rather than an algorithm. Are we looking for two 
-    specific algorithm? The reason I aked this question is that it is eaiser to list a problem, then try to find a algorithm 
-    to solve the problem.
-    \item greedy heuristics impact on wild animal. Animal cognitive, Migrate bird. 
-    \href{https://www.researchgate.net/publication/263430731_Practice_makes_proficient_pigeons_Columba_livia_learn_efficient_routes_on_full-circuit_navigational_traveling_salesperson_problems}{Pigeon experiment}
+    \item remove the conditon of "returns to the origin city"
 \end{itemize}
 
 \section{Reference}
 \begin{itemize}
+    \item Graph Theory With Applications by J.A. Bondy and U. S. R. Murty
     \item \href{http://math.mit.edu/~goemans/18433S15/TSP-CookCPS.pdf}{Nearest Neighbor Alorithm} 
     \item \href{https://www.ams.org/journals/proc/1956-007-01/S0002-9939-1956-0078686-7/home.html}{Kruskal  Alorithm in TSP} 
 \end{itemize}
