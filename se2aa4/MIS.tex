@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{paralist}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{hhline}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{url}
+\usepackage{hyperref}
+
+\oddsidemargin 0mm
+\evensidemargin 0mm
+\textwidth 160mm
+\textheight 200mm
+
+\pagestyle {plain}
+\pagenumbering{arabic}
+
+\newcounter{stepnum}
+
+\title{MidTerm Review}
+\author{Don Chen}
+\date{\today}
+
+\begin {document}
+
+\section{List Comprehension}
+\begin{itemize}
+    \item set comprehension: $\{ x: T | R :  E \}$
+    \item $x$ is the dummy variable
+    \item $E$ is an expression
+    \item $R$ is a predicate
+    \item Modified version: $\{ x: T | R \wedge P:  E \}$
+    \item {$\{ x: N | x \in [1..10] :  x^2 \}$}
+    \item {$\{ x: N | x \in [1..10] \wedge x^2 \geq 12: x^2\}$}
+\end{itemize}
+
+\section{MIS class example}
+\begin{itemize}
+    \item Insert an element in a sequence
+    $$s := s[0..i-1] || <p> || s[i..|s|-1]$$
+    \item delete an element from a sequence
+    $$s := s[0..i-1] || <p> || s[i+1..|s|-1]$$
+    \item intersect($ci$) ci and self are two circle
+    $$\exists ( p: \mbox{pointT} | \mbox{insideCircle}(p, ci) : \mbox{insideCircle}(p, \mathit{self}))$$
+    \item insideCircle: pointT $\times$ circleT $\rightarrow$ boolean
+    \item insideCircle($p, c$) $\equiv$ {$p.\mbox{dist}(c.\mbox{centre}) \leq c.\mbox{radius}$}
+    \item disjoint():
+    $$out
+    :={\forall}{(i,j:\mathbb{N}} | {i \in [0 .. |s| -1] \wedge j \in [0 .. |s| -1] \wedge i \neq j}:{\neg s[i].\mbox{intersect}(s[j])})$$
+    \item Condition, if else, seq\_add($i, p$)
+    $$(|s| = \mbox{MAX\_SIZE} \Rightarrow s := s |\,  |s| <
+    \mbox{MAX\_SIZE} \Rightarrow s := s[0..i-1] || <p> || s[i..|s|-1] )$$
+    
+\end{itemize}
+
+\section{MIS frequent use}
+\begin{itemize}
+    \item element in set of two sequences are equal
+    $$out := \exists(s: \text{MapInd2LOsT} | s \in m : s.\mathit{ind} =
+    \mathit{indicator} \wedge \forall ( x: \text{LOsT} | : x \in s.\mathit{LOs}
+    \leftrightarrow x \in \mathit{outcomes}))$$
+    \item counting
+    $$+ (x: \mathbb{N} | x \in [0..5] \wedge x\%2 == 0 : 1)$$
+    \item sum
+    $$+ (x: \mathbb{N} | x \in [0..5] \wedge x\%2 == 0 : x)$$
+    \item find all index with x value in Set B
+    $$\mbox{indexSet}(x, B) \equiv \{i : \mathbb{N} | i \in [0 .. |B|-1] \wedge B_i =
+    x : i\}$$
+    \item sort($f$): sort student gap base on filter f 
+    $out := L: \text{sequence of string}$, such that\\
+    $(\forall \langle m, i \rangle : \text{StudentT} |
+    \langle m, i \rangle \in s \wedge f(i) : (\exists j: \mathbb{N} | j \in [0 .. |s| - 1] :
+    L_j = m)) \wedge (\forall k:\mathbb{N} | k \in [0..|L|-2] :
+    \text{get\_gpa}(L_k, s) \geq \text{get\_gpa}(L_{k+1}, s))$
+    \item average($f$): find the average of student base on filter f 
+    $$out := \frac{(+ i : \text{SInfoT} | i \in \mathit{fset}: i.\text{gpa})}{|\mathit{fset}|}
+    \text{ where }
+    \mathit{fset} = \{ \langle m, i \rangle : \text{StudentT} | \langle m, i
+    \rangle \in s \wedge f(i): i \}$$
+    \item the lagest absolute value in $x_s$
+    $$m \text{ such that } (m \in x_s \vee -m \in x_s) \wedge \forall (x :\mathbb{R} | x \in x_s : m \geq |x|)$$
+    \item max in $x_s$
+    $$m \text{ such that } (m \in x_s) \wedge \forall (x :\mathbb{R} | x \in x_s : m \geq x)$$
+    \item min in $x_s$
+    $$m \text{ such that } (m \in x_s) \wedge \forall (x :\mathbb{R} | x \in x_s : m \le x)$$
+    \item add a tuple to a set or sequence
+    $$\mathit{maze} := \mathit{maze} \cup \{ < c1, c2 > \}$$
+\end{itemize}
+
+\end {document}
