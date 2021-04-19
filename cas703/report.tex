@@ -61,7 +61,7 @@ None
 An alternative way is to let the Animal class be a component of the StateFair class rather 
 than a component of the Person class. 
 If this is the case, in the Animal class, there would be a reference to determine who owns the livestock. 
-The Observation class and Race class need to have a dependency on the Animal class 
+The Observation class and Race class need to have a dependency/reference on the Animal class 
 because they might require livestock in the event.
 
 \pagebreak
@@ -75,16 +75,16 @@ graph editor can be constructed.
 \subsection{The Graph Editor}
 \includegraphics[scale = 0.6]{img/eugenia-editor}
 
-The details of the graph editor in the following list.
+The details of how to define the graph editor in the following list.
 
 \begin{itemize}
     \item @gmf.diagram: Statefair - (this is the start of diagram)
     \item @gmf.node: Person, Day, Slot, Event(Observation, Race), Stall, Animal - (they are nodes represent each class)
-    \item @gmf.link: Stall, Person - (they are dependencies)
+    \item @gmf.link: Stall, Person - (they are dependencies/references)
     \item @gmf.compartment: Animal[*], Slot[*], Event[*] - (compartment allow a shape inside a shape)
 \end{itemize}
 
-\subsection{More classes in the Editor}
+\subsection{More Cases in the Editor}
 \includegraphics[scale = 0.6]{img/eugenia-editor-more}
 
 \subsection{Strengths and Weaknesses}
@@ -92,8 +92,8 @@ The details of the graph editor in the following list.
 Eugenia helps to visualize the relationship between each class. It is very intuitive and easy to understand.
 
 \noindent \textbf{Weaknesses}: 
-Eventually, it can get messy when more classes add to the editor. Increased classes can lead the editor hard to read. 
-Each time, it requires to lunch of a new instance of the project. This is an extra step that some developers may think it is 
+Eventually, it can get messy when more cases add to the editor. Increased cases can lead the editor hard to read. 
+Each time, it requires to launch of a new instance of the project. This is an extra step that some developers may think it is 
 tedious. The work between the default eclipse and the new editor is not synchronized, which means data added in the new graph editor 
 are not available in the previous tree editor.
 \\Additionally, developers might feel it is inefficient to use the graph editor. 
@@ -128,7 +128,8 @@ in the following sections.
 \subsection{Constraints do not know How to Implement}
 \begin{itemize}
     \item Time comparison: the start time need to earlier than the end time in an event.
-    \item The size of the stall should great than the total size of livestock attend in the event.
+    \item The size of the stall should great than the total size of livestock attend in the event. This means every livestock 
+    will have a stall to rest during the event.
 \end{itemize}
 
 \subsection{Run EVL Individually}
@@ -146,7 +147,7 @@ There are the steps to make constraints integration in the graph editor, it is s
     \item Right click StateFair, and select Plugin-in Tools, then open Manifest.
     \item In the dependencies, add org.eclipse.ui.ide and org.eclipse.epsilon.evl.emf.validation to the list of dependencies.
     \item In the extension, add org.eclipse.epsilon.evl.emf.validation. After that, right-click to add a new constraintBinding. 
-    This is step is to tell the program to bind this project with the evl file which contains constraints. In the constraint* 
+    This is the step to tell the program to bind this project with the evl file which contains constraints. In the constraint* 
     field, browse the evl file, and select the directory of it. 
     \item Add the org.eclipse.ui.ide.markerResolution in extension, and right-click add generic script with following code.
     \newline class : org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator
@@ -173,58 +174,60 @@ There are several unsolved problems in this project.
     A new attribute, such as type, could be introduced to distinct animal types in the Animal 
     class. The Stall class has an attribute called location, this helps to indicate the stall location.
     \item The author tried to compare two times and determine which time is earlier time. The logic 
-    could be to use ":" as a delimiter and compare the hour and minutes. The author runs some issues 
+    could be using ":" as a delimiter, then compare the hour and minutes. The author runs some issues 
     with the program syntax, and not sure how and which way is the best to complete this task.
 \end{itemize}
 
 \pagebreak
 \section{Model Transformation}
-This model to text transformation is more similar to the transformation presented in the lecture. However, the author expands the example 
+This model to text transformation is similar to the transformation presented in the lecture. However, the author expands the example 
 and produces more complex html files to automate some work tasks. The following is what the html file will be generated.
 \begin{itemize}
     \item The event schedule on each day. It contains the start time and end time, event name, duration, and who is the performer.
-    \item A overall stall list. It contains the name of the stall, the size, and the location tag.
+    \item An overall stall list. It contains the name of the stall, the size, and the location tag.
     \item The name badge of all participants in the state fair event.
 \end{itemize}
 ~\newline
-The implementation follows closely on the instruction on this tutorial - 
+The implementation follows closely on the instruction of this tutorial - 
 \href{https://www.eclipse.org/epsilon/doc/articles/code-generation-tutorial-egl/}{Code Generation Tutorial with EGL}
 
 \subsection{Event Schedule}
-Example on day 1 schedule.
+An example of day 1 schedule.
 
 \includegraphics[scale = 0.6]{img/schedule}
 
 \includegraphics[scale = 0.6]{img/nestedloop}
 
 \subsection{Whole Stall List}
-Example on a list of all stalls.
+An example of a list of all stalls.
 
 \includegraphics[scale = 0.6]{img/stall-list}
 
 \subsection{Badge for each Individuals}
-Example on a badge of a participant.
+An example of a badge of a participant.
 
 \includegraphics[scale = 0.6]{img/badge}
 
 \subsection{Analysis}
-The benefit of creating all different type of html files are enormous. From the practical view, it helps to keep the website, 
+The benefit of creating all different types of html files are enormous. From the practical view, it helps to keep the website, 
 event booklets, and badge consistent. Moreover, it could save more time for a programmer to focus on other tasks, and save the 
 company's resources in the long term.
 \\
 The author also thinks there should be some integration between the web server and Epsilon. For example, how the web server 
-automatically picks up the right html file, and updates it on the web page. Another task is sending the name badge to each 
-participant via email. Right now, the EGL model only can produce the name badge for all participants
+automatically picks up the right html file which generated by Epsilon, and updates it on the web page. Another integration 
+is sending the name badge to each 
+participant via email. Right now, the EGL model only can produce the name badge for all participants. An email bot may be needed 
+to automatically send the badge html file to each individual.
 
 \subsection{Difficulties}
-There are difficulties the author faced in the implementation. For example, how to print a list that only contains referees? 
-Only Race class has the attribute of the referee, and the Race class is a child class of Event. When the author loop through 
+There are some difficulties the author faced in the implementation. For example, how to print a list that only contains referees? 
+Only Race class has the attribute of the referee, and the Race class is a child class of Event. When looping through 
 the Event list, some instances can be Observation class which does not have an attribute of the referee.
 
 \section{Summary}
 Creating a DSL is an extremely interesting topic. The project demonstrates how to use Emfatic/Ecore to generate a class 
 diagram of the metamodel, integrating a graph editor in Eugenia, adding validation constraints in the editor, and transforming 
-model to other forms. The report also provides opinions/insights on each implementation, include advantages, disadvantages, 
+the model to other forms. The report also provides opinions/insights on each implementation, include advantages, disadvantages, 
 and difficulties.
 
 \pagebreak
