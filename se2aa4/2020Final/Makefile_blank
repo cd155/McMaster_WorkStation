@@ -1,0 +1,10 @@
+JFLAGS = -g
+JCLASS = -cp "src_blank:.:junit-4.5.jar"
+JC = javac
+JVM = java
+
+.PHONY: all
+all:
+	find . -name '*.class' -exec rm -f {} \;
+	$(JC) $(JCLASS) $(JFLAGS) ./src_blank/TestSeq1D.java
+	$(JVM) $(JCLASS) org.junit.runner.JUnitCore src_blank.TestSeq1D
