@@ -9,10 +9,14 @@ SRC = final.tex
 .PHONY: all
 all:
 	find . -name '*.class' -exec rm -f {} \;
-	$(JC) $(JCLASS) $(JFLAGS) ./src/TestMinMax.java
-	$(JVM) $(JCLASS) org.junit.runner.JUnitCore src.TestMinMax
-	$(JC) $(JCLASS) $(JFLAGS) ./src/TestSeq1D.java
-	$(JVM) $(JCLASS) org.junit.runner.JUnitCore src.TestSeq1D
+	# $(JC) $(JCLASS) $(JFLAGS) ./src_blank/TestMinMax.java
+	# $(JVM) $(JCLASS) org.junit.runner.JUnitCore src.TestMinMax
+	$(JC) $(JCLASS) $(JFLAGS) ./src_blank/TestSeq1D.java
+	$(JVM) $(JCLASS) org.junit.runner.JUnitCore src_blank.TestSeq1D
+
+expt:
+	$(JC) $(JCLASS) $(JFLAGS) src_blank/Example.java
+	$(JVM)  src_blank/Example
 
 latex: 
 	$(LATEX_CMD) $(SRC)
