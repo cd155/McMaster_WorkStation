@@ -4,12 +4,12 @@ import java.util.Collections;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class Seq1D
+public class Seq1D<T extends Comparable<T>>
 {
-    protected T[] s;
+    protected ArrayList<T> s;
     protected TieHandler tieHandler;
 
-    public Seq1D(T[] setT, TieHandler handler)
+    public Seq1D(ArrayList<T> setT, TieHandler handler)
     {
         s = setT;
         tieHandler = handler;
@@ -28,19 +28,21 @@ public class Seq1D
             }
         }
 
-        if(isExist)
+        if(!isExist)
         {
             throw new IllegalArgumentException();
         }
 
-        T[] newSorted = Collections.sort(s); 
+        Collections.sort(s);
         ArrayList<Integer> finding = new ArrayList<Integer>();
-        for(int i = 0; i<finding.size(); i++)
+        for(int i = 0; i<s.size(); i++)
         {
-            if(newSorted[i] == item){
+            if(s.get(i) == item){
+                
                 finding.add(i);
             }
         }
-        return finding;
+
+        return tieHandler.rCalc(finding);
     }
 }
