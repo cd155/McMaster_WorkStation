@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 public class MinCalc implements TieHandler
 {
-    public double rCalc(int[] s)
+    public double rCalc(ArrayList<Integer> s)
     {
-        int min = 0;
-        for (int i : s) {
-            if(i > min){
+        int min = s.get(0);
+
+        for (Integer i : s) {
+            if(i < min){
                 min = i;
             }
         } 

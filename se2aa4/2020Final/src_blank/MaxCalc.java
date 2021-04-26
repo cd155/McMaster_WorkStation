@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class MaxCalc implements TieHandler
 {
-    public double rCalc(int[] s)
+    public double rCalc(ArrayList<Integer> s)
     {
         int max = 0;
-        for (int i : s) {
+        for (Integer i : s) {
             if(i > max){
                 max = i;
             }

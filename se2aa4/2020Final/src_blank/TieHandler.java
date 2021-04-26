@@ -4,5 +4,5 @@ import java.util.ArrayList;
 
 public interface TieHandler
 {
-    double rCalc(int[] s);
+    double rCalc(ArrayList<Integer> s);
 }
